@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'authors/index'
+  get 'authors/edit'
+  get 'authors/show'
+  get 'authors/new'
   get 'books/index'
   get 'books/edit'
   get 'books/new'
