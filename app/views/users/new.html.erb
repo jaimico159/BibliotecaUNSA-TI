@@ -1,2 +1,32 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Añadir Usuario</h1>
+<table class="table table-striped" summary="Add Task" >
+    <tr class="header">
+        <th></th>
+        <th>Contenido</th>
+    </tr>
+    <tr>
+            <th>Nombre</th>
+            <%= form_for(:users, :url => {:action => 'create', :id => @user.id}) do |f| %>
+            <td><%= f.text_field(:nombre) %></td>
+    </tr>
+    <tr>
+            <th>Apellidos</th>
+            <td><%= f.text_field(:apellidos) %></td>
+    </tr>
+     <tr>
+            <th>Telefono</th>
+            <td><%= f.text_field(:telefono) %></td>
+    </tr>
+     <tr>
+            <th>Email</th>
+            <td><%= f.text_field(:email) %></td>
+    </tr>
+    <tr>
+            <th>Contraseña</th>
+            <td><%= f.password_field(:email) %></td>
+    </tr>
+    
+ 
+</table>
+        <%= submit_tag("Añadir", :class => "btn btn-primary") %>
+        <% end %>
