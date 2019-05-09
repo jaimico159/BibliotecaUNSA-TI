@@ -1,2 +1,20 @@
 <h1>Authors#new</h1>
 <p>Find me in app/views/authors/new.html.erb</p>
+
+<%= form_for(@author) do |f| %>
+  <%@author.errors.full_messages.each do |mesage|%>
+    <div>
+    *<%=mesage%>
+    </div>
+  <%end%>
+
+    <div>
+        <%=f.text_field :first_name, placeholder:"Nombres"%>
+    </div>
+    <div>
+        <%=f.text_field :last_name, placeholder:"Apellidos"%>
+    </div>
+    <div>
+        <%=f.submit "Guardar"%>
+    </div>
+<%end%>

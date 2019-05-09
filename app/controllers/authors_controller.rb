@@ -7,24 +7,26 @@ class AuthorsController < ApplicationController
   end
 
   def show
+    @author = Author.find(params[:id])
   end
 
   def new
+    @author = Author.new
   end
 
   def create
+    @author= Author.new(first_name: params[:author][:first_name],
+    last_name: params[:author][:last_name])
+    if @author.save
+      redirect_to @author
+    else
+      render :new
+    end
+    
   end
 
   def update
-    respond_to do |format|
-        if @author.update(authors_params)
-          format.html { redirect_to @author, notice: 'El autor ha sido correctamente actualizado.' }
-          format.json { render :show, status: :ok, location: @estudiante }
-        else
-          format.html { render :edit }
-          format.json { render json: @author.errors, status: :unprocessable_entity }
-        end
-    end
+    
   end
 
   def delete
