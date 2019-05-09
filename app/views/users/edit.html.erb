@@ -1,2 +1,32 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>Añadir Usuario</h1>
+<table class="table table-striped" summary="Add Task" >
+    <tr class="header">
+        <th></th>
+        <th>Contenido</th>
+    </tr>
+    <tr>
+            <th>Nombre</th>
+            <%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
+            <td><%= f.text_field(:first_name) %></td>
+    </tr>
+    <tr>
+            <th>Apellidos</th>
+            <td><%= f.text_field(:last_name) %></td>
+    </tr>
+     <tr>
+            <th>Telefono</th>
+            <td><%= f.text_field(:phone) %></td>
+    </tr>
+     <tr>
+            <th>Email</th>
+            <td><%= f.text_field(:email) %></td>
+    </tr>
+    <tr>
+            <th>Contraseña</th>
+            <td><%= f.password_field(:encrypted_password) %></td>
+    </tr>
+    
+ 
+</table>
+        <%= submit_tag("Editar", :class => "btn btn-primary") %>
+        <% end %>
